@@ -30,7 +30,7 @@ if [ -f "/root/reality.json" ] && [ -f "/root/sing-box" ] && [ -f "/root/public.
     echo "4. 选择版本（稳定版/测试版）"
     echo "5. 卸载"
     echo ""
-    read -p "Enter your choice (1-5): " choice
+    read -p "输入选择 (1-5): " choice
 
     case $choice in
         1)
@@ -92,7 +92,7 @@ if [ -f "/root/reality.json" ] && [ -f "/root/sing-box" ] && [ -f "/root/public.
 			# 生成链接
 			server_link="vless://$uuid@$server_ip:$current_listen_port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$current_server_name&fp=chrome&pbk=$public_key&sid=$short_id&type=tcp&headerType=none#SING-BOX-TCP"
 			
-			echo "$服务器链接"
+			echo "$server_link"
 			echo ""
 			echo ""
 			exit 0
