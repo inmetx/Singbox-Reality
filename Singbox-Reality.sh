@@ -210,7 +210,7 @@ if [ -f "/root/reality.json" ] && [ -f "/root/sing-box" ] && [ -f "/root/public.
 		echo "1. 稳定版"
 		echo "2. 测试版"
   		echo ""
-		read -p "Enter your choice (1-2, default: 1): " version_choice
+		read -p "请输入您的选择  (1-2, 默认: 1): " version_choice
   		echo ""
 		version_choice=${version_choice:-1}
 
