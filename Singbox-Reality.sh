@@ -20,7 +20,7 @@ fi
 # 检查 reality.json、sing-box 和 sing-box.service 是否已存在
 if [ -f "/root/reality.json" ] && [ -f "/root/sing-box" ] && [ -f "/root/public.key.b64" ] && [ -f "/etc/systemd/system/sing-box.service" ]; then
 
-    echo "现实文件已存在."
+    echo "文件已存在."
     echo ""
     echo "请选择选项:"
     echo ""
