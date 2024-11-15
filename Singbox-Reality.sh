@@ -26,7 +26,7 @@ if [ -f "/root/reality.json" ] && [ -f "/root/sing-box" ] && [ -f "/root/public.
     echo ""
     echo "1. 重新安装"
     echo "2. 更改配置"
-    echo "3. 显示当前链接"
+    echo "3. 当前配置"
     echo "4. 选择版本（稳定版/测试版）"
     echo "5. 卸载"
     echo ""
@@ -90,7 +90,7 @@ if [ -f "/root/reality.json" ] && [ -f "/root/sing-box" ] && [ -f "/root/public.
 			server_ip=$(curl -s https://api.ipify.org)
 			
 			# 生成链接
-			server_link="vless://$uuid@$server_ip:$current_listen_port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$current_server_name&fp=chrome&pbk=$public_key&sid=$short_id&type=tcp&headerType=none#SING-BOX-TCP"
+			server_link="vless://$uuid@$server_ip:$current_listen_port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$current_server_name&fp=chrome&pbk=$public_key&sid=$short_id&type=tcp&headerType=none#Singbox-TCP"
 			
 			echo "$server_link"
 			echo ""
@@ -98,7 +98,7 @@ if [ -f "/root/reality.json" ] && [ -f "/root/sing-box" ] && [ -f "/root/public.
 			exit 0
             		;;
 	3)
-			echo "显示当前链接..."
+			echo "当前配置链接..."
 			
 			# 获取当前监听端口
 			current_listen_port=$(jq -r '.inbounds[0].listen_port' /root/reality.json)
@@ -119,10 +119,10 @@ if [ -f "/root/reality.json" ] && [ -f "/root/sing-box" ] && [ -f "/root/public.
 			server_ip=$(curl -s https://api.ipify.org)
 			
 			# 生成链接
-			server_link="vless://$uuid@$server_ip:$current_listen_port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$current_server_name&fp=chrome&pbk=$public_key&sid=$short_id&type=tcp&headerType=none#SING-BOX-TCP"
+			server_link="vless://$uuid@$server_ip:$current_listen_port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$current_server_name&fp=chrome&pbk=$public_key&sid=$short_id&type=tcp&headerType=none#Singbox-TCP"
 			echo ""
 			echo ""
-			echo "$服务器链接"
+			echo "$server_link"
 			echo ""
 			echo ""
 			exit 0
@@ -289,11 +289,11 @@ uuid=$(/root/sing-box generate uuid)
 short_id=$(/root/sing-box generate rand --hex 8)
 
 # 请求监听端口
-read -p "Enter desired listen port (default: 443): " listen_port
+read -p "输入端口 (默认: 443): " listen_port
 listen_port=${listen_port:-443}
 echo ""
 # 输入优选域名 (sni)
-read -p "Enter server name/SNI (默认: addons.mozilla.org): " server_name
+read -p "输入优选域名/SNI (默认: addons.mozilla.org): " server_name
 echo ""
 server_name=${server_name:-addons.mozilla.org}
 
@@ -378,7 +378,7 @@ if /root/sing-box check -c /root/reality.json; then
 
 # 生成链接
 
-    server_link="vless://$uuid@$server_ip:$listen_port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$server_name&fp=chrome&pbk=$public_key&sid=$short_id&type=tcp&headerType=none#SING-BOX-TCP"
+    server_link="vless://$uuid@$server_ip:$listen_port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$server_name&fp=chrome&pbk=$public_key&sid=$short_id&type=tcp&headerType=none#Singbox-TCP"
 
     # 输出服务器详情
     echo
@@ -393,7 +393,7 @@ if /root/sing-box check -c /root/reality.json; then
     echo "以下是 v2rayN 和 v2rayNG 的链接 :"
     echo ""
     echo ""
-    echo "$订阅链接"
+    echo "$server_link"
     echo ""
     echo ""
 else
