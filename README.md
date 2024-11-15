@@ -1,6 +1,6 @@
 # Singbox-Reality
 
-Singbox-Reality 是第一个以sing-box 内核一键安装 REALITY 的脚本！
+Singbox-Reality 是一个以sing-box 内核一键安装 REALITY 的脚本！
 
 ## 功能
 
